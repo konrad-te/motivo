@@ -1,0 +1,22 @@
+[
+ {"name":"City shortlist","message":"A petrol hatchback, automatic, under 60,000 PLN","expected":{"maxPrice":60000,"fuel":["petrol"],"body":["compact"],"gearbox":"automatic"},"mustFind":true},
+ {"name":"Family with seven seats","message":"At least 7 seats, automatic, under 100k PLN","expected":{"minSeats":7,"maxPrice":100000,"gearbox":"automatic"},"mustFind":true},
+ {"name":"Electric from 2020","message":"Electric cars under 120,000 PLN, from 2020","expected":{"fuel":["electric"],"maxPrice":120000,"minYear":2020},"mustFind":true},
+ {"name":"Long-distance estate","message":"Diesel estate, automatic, under 80,000 PLN and under 150,000 km","expected":{"fuel":["diesel"],"body":["combi"],"gearbox":"automatic","maxPrice":80000,"maxMileage":150000},"mustFind":true},
+ {"name":"Budget in Polish","message":"Benzyna automat do 50 tys. zl","expected":{"fuel":["petrol"],"gearbox":"automatic","maxPrice":50000},"mustFind":true},
+ {"name":"Decimal thousands","message":"My budget is 45.5k PLN","expected":{"maxPrice":45500},"mustFind":true},
+ {"name":"Seats are not money","message":"I need 7 seats","expected":{"minSeats":7,"maxPrice":null},"mustFind":true},
+ {"name":"Mileage is not money","message":"Under 80,000 km","expected":{"maxMileage":80000,"maxPrice":null},"mustFind":true},
+ {"name":"Budget range","message":"Between 30k and 50k PLN","expected":{"minPrice":30000,"maxPrice":50000},"mustFind":true},
+ {"name":"Specific brand","message":"Toyota under 70,000 PLN","expected":{"make":["toyota"],"maxPrice":70000},"mustFind":true},
+ {"name":"City with diacritics","message":"Automatic under 90k PLN in Warszawa","expected":{"city":"Warszawa","gearbox":"automatic","maxPrice":90000},"mustFind":true},
+ {"name":"Preserve previous constraints","message":"Make it automatic","previous":{"maxPrice":50000,"fuel":["petrol"]},"expected":{"maxPrice":50000,"fuel":["petrol"],"gearbox":"automatic"},"mustFind":true},
+ {"name":"Remove fuel constraint","message":"Any fuel is fine","previous":{"maxPrice":60000,"fuel":["diesel"]},"expected":{"maxPrice":60000,"fuel":[]},"mustFind":true},
+ {"name":"Remove location constraint","message":"Anywhere in Poland","previous":{"city":"Warszawa","maxPrice":60000},"expected":{"city":null,"maxPrice":60000},"mustFind":true},
+ {"name":"Impossible budget stays firm","message":"Under 1,000 PLN","expected":{"maxPrice":1000},"mustFind":false},
+ {"name":"Unknown city stays firm","message":"Update my shortlist","previous":{"city":"NoSuchCity"},"expected":{"city":"NoSuchCity"},"mustFind":false},
+ {"name":"Year outside snapshot stays firm","message":"Update my shortlist","previous":{"minYear":2026},"expected":{"minYear":2026},"mustFind":false},
+ {"name":"Missing reliability evidence","message":"A reliable car under 60k PLN with low maintenance costs","expected":{"maxPrice":60000},"unsupported":true,"mustFind":true},
+ {"name":"Missing boot-space evidence","message":"A family car with a big boot under 80k PLN","expected":{"maxPrice":80000},"unsupported":true,"mustFind":true},
+ {"name":"Greeting asks about needs","message":"Hello","expected":{"maxPrice":null},"intent":"greeting"}
+]

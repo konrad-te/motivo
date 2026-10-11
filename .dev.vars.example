@@ -1,0 +1,3 @@
+# Copy to .dev.vars for the local Cloudflare development runtime.
+OPENAI_API_KEY=
+OPENAI_MODEL=gpt-6.1-sol

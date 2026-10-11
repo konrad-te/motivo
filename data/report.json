@@ -1,0 +1,53 @@
+{
+  "source": "https://github.com/karoljarzabek0/car_dataset_EDA",
+  "sourceSnapshot": "March 2025",
+  "usage": "Educational use only, as stated by the dataset author. Historical asking prices; no current availability is implied.",
+  "archiveSha256": "afe7dbf667d25e62557e45ae68d4507b3c598d361c45f490eced27f667c93209",
+  "rawRows": 219808,
+  "cleanRows": 211564,
+  "appRows": 12000,
+  "sampleMethod": "SHA-256 of offer ID; one record per make/fuel/body/50,000 PLN price band, then hash-order fill.",
+  "excluded": {
+    "missing_or_duplicate_id": 6910,
+    "price_outside_project_scope": 723,
+    "year_outside_project_scope": 611
+  },
+  "missingValuesCleanCatalog": {
+    "version": 66160,
+    "consumption": 98646,
+    "accidentFree": 69187,
+    "seats": 19806,
+    "damaged": 22317,
+    "mileage": 16,
+    "power": 408,
+    "gearbox": 95
+  },
+  "appMissingValues": {
+    "id": 0,
+    "title": 0,
+    "make": 0,
+    "model": 0,
+    "price": 0,
+    "year": 0,
+    "city": 0,
+    "region": 0,
+    "fuel": 0,
+    "gearbox": 7,
+    "body": 0,
+    "version": 4240,
+    "mileage": 3,
+    "power": 46,
+    "seats": 1254,
+    "consumption": 6529,
+    "damaged": 1603,
+    "accidentFree": 3805,
+    "qualityFlags": 0
+  },
+  "makes": 109,
+  "cities": 1830,
+  "qualityFlagsFullCatalog": {
+    "price_below_30_percent_of_peer_median": 889
+  },
+  "appQuarantinedPrices": 67,
+  "priceQualityRule": "Quarantine prices below 30% of the median for the same make/model/year when at least 5 non-damaged peers exist, and titles suggesting lease/deposit. These flags are heuristics, not verified errors; original prices are preserved."
+}
