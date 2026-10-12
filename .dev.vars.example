@@ -1,3 +1,8 @@
 # Copy to .dev.vars for the local Cloudflare development runtime.
+AI_PROVIDER=ollama
+OLLAMA_BASE_URL=http://127.0.0.1:11434
+OLLAMA_MODEL=qwen3.5:4b
+
+# To use OpenAI instead, set AI_PROVIDER=openai and provide the key.
 OPENAI_API_KEY=
 OPENAI_MODEL=gpt-6.1-sol

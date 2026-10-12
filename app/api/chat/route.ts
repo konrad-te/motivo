@@ -1,5 +1,6 @@
 import { env } from 'cloudflare:workers';
 import { chat } from '../../../lib/service.mjs';
+import { getModelConfig } from '../../../lib/model-config.mjs';
 
 export async function POST(request: Request) {
   try {
@@ -8,7 +9,7 @@ export async function POST(request: Request) {
     if (text.length > 40000) return Response.json({error:'Conversation is too large.'},{status:413});
     const body = JSON.parse(text);
     const values = env as unknown as Record<string,string>;
-    const result = await chat(body, { apiKey:values.OPENAI_API_KEY || process.env.OPENAI_API_KEY, model:values.OPENAI_MODEL || process.env.OPENAI_MODEL || 'gpt-6.1-sol' });
+    const result = await chat(body, getModelConfig(values));
     return Response.json(result,{headers:{'Cache-Control':'no-store'}});
   } catch (error) {
     const e = error as {status?:number;message?:string};

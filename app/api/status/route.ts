@@ -1,6 +1,8 @@
 import { env } from 'cloudflare:workers';
 import { report } from '../../../lib/service.mjs';
+import { getModelConfig } from '../../../lib/model-config.mjs';
 export async function GET() {
   const values = env as unknown as Record<string,string>;
-  return Response.json({mode:values.OPENAI_API_KEY || process.env.OPENAI_API_KEY ? 'ai' : 'catalog',model:values.OPENAI_MODEL || process.env.OPENAI_MODEL || 'gpt-6.1-sol',report},{headers:{'Cache-Control':'no-store'}});
+  const config = getModelConfig(values);
+  return Response.json({mode:config.provider === 'catalog' ? 'catalog' : 'ai',provider:config.provider,model:config.model,report},{headers:{'Cache-Control':'no-store'}});
 }
